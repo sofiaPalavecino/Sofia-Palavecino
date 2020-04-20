@@ -8,7 +8,16 @@ public class Hospitales {
     private ArrayList<Persona>Doctores_Atendiendo;
     private int Camas_Disponibles;
 
-    public Hospitales(String nombre_HospitalN, int Camas_DisponiblesN){
+    public  Hospitales(){
+        this.Nombre_Hospital="Hospital Otamendi";
+        this.Camas_Disponibles=1800;
+        this.Paciente_por_Atender= new ArrayList<>();
+        this.Pacientes_siendo_Atendidos=new ArrayList<>();
+        this.Pacientes_Atendidos=new ArrayList<>();
+        this.Doctores_Atendiendo=new ArrayList<>();
+    }
+
+    public Hospitales(String nombre_HospitalN, int Camas_DisponiblesN, ArrayList Paciente_por_AtenderN, ArrayList Pacientes_siendo_AtendidosN,ArrayList Pacientes_AtendidosN,ArrayList Doctores_AtendiendoN){
         this.Nombre_Hospital=nombre_HospitalN;
         this.Camas_Disponibles=Camas_DisponiblesN;
         this.Paciente_por_Atender= new ArrayList<>();
@@ -51,7 +60,7 @@ public class Hospitales {
         int Cant_Atendidos=x.getPacientes_Atendidos().size();
         return Cant_Atendidos;
     }
-    public void PacientesSiendoAtendidos(Hospitales y){
+    public boolean PacientesSiendoAtendidos(Hospitales y){
         for(int i=1;i<=y.getPacientes_siendo_Atendidos().size();i++){
             Persona persona= (Persona) y.getPacientes_siendo_Atendidos().get(i);
             String Nombre=persona.getNombre();
@@ -59,10 +68,11 @@ public class Hospitales {
             System.out.println("Nombre Paciente "+i+":"+Nombre);
             System.out.println("Edad Paciente "+i+":"+Edad);
         }
+        return true;
     }
 
     public void AgregarPacientesPorAtender(Persona x, Hospitales y){
-        y.Paciente_por_Atender.add(x);
+            y.getPaciente_por_Atender().add(x);
     }
 
     public void EliminarPacientesPorAtender(Persona x, Hospitales y){
