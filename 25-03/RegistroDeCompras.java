@@ -71,6 +71,7 @@ public class RegistroDeCompras {
         String NombreObjetoIngresado=ingreso.nextLine();
         System.out.println(NombreObjetoIngresado);
 
+        
         System.out.println("Ingrese Marca");
         String MarcaIngresada=ingreso.nextLine();
         System.out.println(MarcaIngresada);
