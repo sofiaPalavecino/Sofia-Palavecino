@@ -50,6 +50,4 @@ public class Pasajero {
     public void setDniPasajero(int DniPasajeroN) {
         this.DniPasajero = DniPasajero;
     }
-
-
 }
