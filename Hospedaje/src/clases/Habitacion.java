@@ -39,6 +39,7 @@ public class Habitacion {
 
     }
 
+
     public int getNumero(){return numero;}
     public int getCantidadDeHuespedes(){return cantidadDeHuespedes;}
     public ArrayList getHuespedes(){return huespedes;}
@@ -70,10 +71,7 @@ public class Habitacion {
         this.precio = precio;
     }
 
-    public void getCantidadDeDiasDeEstadia() {
-        int cantidadDeDias = 0;
 
-    }
 
     public void pedidoFechaEntrada(Habitacion habitacionSeleccionada){
         Scanner ingresoFechaEntradaDia = new Scanner(System.in);
@@ -113,24 +111,43 @@ public class Habitacion {
         hotel1.setIngresoTotal(ingresoActual);
     }
 
+    public void guardarIngreso(Hotel hotel1, Habitacion habitacionSeleccionada,float precioFinal){
+        Ingresos ingresoNuevo=new Ingresos(habitacionSeleccionada.getNumero());
+        ingresoNuevo.setHuespedes(habitacionSeleccionada.getHuespedes());
+        ingresoNuevo.setFechaEntrada(habitacionSeleccionada.getFechaEntrada());
+        ingresoNuevo.setFechaSalida(habitacionSeleccionada.getFechaSalida());
+        ingresoNuevo.setPrecioTotal(precioFinal);
+        hotel1.getTotalIngresos().add(ingresoNuevo);
+    }
+
     public float calculoPromocion(Habitacion habitacionSeleccionada,Hotel hotel1){
         float precioFinal=0.0f;
-        if(cantidadDeDiasDeDiferenciaCon(Fecha fecha)>30){
+        if(habitacionSeleccionada.getFechaSalida().getCantidadDeDiasDeDiferenciaCon(habitacionSeleccionada.getFechaEntrada())>30){
             precioFinal=habitacionSeleccionada.getPrecio()-((habitacionSeleccionada.getPrecio()*25)/100);
         }
         else{
             precioFinal=habitacionSeleccionada.getPrecio();
         }
         sumaIngresoHotel(precioFinal,hotel1);
+        guardarIngreso(hotel1,habitacionSeleccionada,precioFinal);
         return precioFinal;
     }
 
     public void registroHospedaje(Hotel hotel1,Habitacion habitacionSeleccionada, ArrayList<Pasajero>pasajerosNuevos){
-        for(int i=0;i<=pasajerosNuevos.size();i++){
-            habitacionSeleccionada.getHuespedes().add(pasajerosNuevos.get(i));
+        for(Pasajero pasajeroNuevo: pasajerosNuevos){
+            habitacionSeleccionada.getHuespedes().add(pasajeroNuevo);
         }
         pedidoFechaEntrada(habitacionSeleccionada);
         pedidoFechaSalida(habitacionSeleccionada);
         System.out.print("Precio a pagar: "+calculoPromocion(habitacionSeleccionada,hotel1));
+    }
+
+    public void entradaYSalida(Habitacion habitacionSeleccionada){
+        System.out.println("Fecha entrada para habitación "+habitacionSeleccionada.getNumero()+" : "+habitacionSeleccionada.getFechaEntrada());
+        System.out.println("Fecha salida para habitación "+habitacionSeleccionada.getNumero()+" : "+habitacionSeleccionada.getFechaSalida());
+    }
+
+    public void agregarDiasEstadía(Habitacion habitacionSeleccionada){
+        pedidoFechaSalida(habitacionSeleccionada);
     }
 }

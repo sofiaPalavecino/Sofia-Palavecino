@@ -88,7 +88,7 @@ public class Fecha {
         return sonIguales;
     }
 
-    public int cantidadDeDiasDeDiferenciaCon(Fecha fecha) {
+    public int getCantidadDeDiasDeDiferenciaCon(Fecha fecha) {
         int cantidadDeDias = 0;
         if (!this.esIgualA(fecha)) {
             for(int i = this.anio; i <= fecha.getAnio(); ++i) {
