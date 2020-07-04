@@ -1,28 +1,35 @@
 package clases;
 
 public class DatoAlmacenado {
-    private String nombreDato;
-    private int valorDato;
+    private String nombreValor;
+    private int numeroValor;
 
-    public DatoAlmacenado(int valorDato,String nombreDato){
-        this.nombreDato=nombreDato;
-        this.valorDato=valorDato;
+    public DatoAlmacenado(int numeroValor, String nombreValor) {
+        this.nombreValor = nombreValor;
+        this.numeroValor = numeroValor;
+    }
+    public String getNombreValor() {
+        return nombreValor;
     }
 
-    public String getNombreDato() {
-        return nombreDato;
+    public void setNombreValor(String nombreValor) {
+        this.nombreValor = nombreValor;
     }
 
-    public int getValorDato() {
-        return valorDato;
+    public int getNumeroValor() {
+        return numeroValor;
     }
 
-    public void setNombreDato(String nombreDato) {
-        this.nombreDato = nombreDato;
+    public void setNumeroValor(int numeroValor) {
+        this.numeroValor = numeroValor;
     }
 
-    public void setValorDato(int valorDato) {
-        this.valorDato = valorDato;
+    public int MetodoParaRead(String nombre){
+        if(nombre == nombreValor){
+            return numeroValor;
+        }
+        else{
+            return 0;
+        }
     }
 }
-
