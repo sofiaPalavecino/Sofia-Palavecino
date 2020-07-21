@@ -3,12 +3,15 @@ import clases.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.HashSet;
+import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args){
 
         HashMap<String,Integer> cantidadVendidosEditorial = new HashMap<String,Integer>();
         HashSet<Libro>librosVendidosDia=new HashSet<>();
+        HashSet<String>editorialesConDesuento=new HashSet<>();
+        HashMap<Compra,Integer>comprasTotales=new HashMap<>();
 
         Libro libro1=new Libro();
         Libro libro2=new Libro();
@@ -17,6 +20,8 @@ public class Main {
         Libro libro5=new Libro();
         Libro libro6=new Libro();
         Libro libro7=new Libro();
+
+        Usuario usuario1=new Usuario();
 
         cantidadVendidosEditorial.put("Kapelusz", 0);
         cantidadVendidosEditorial.put("Sudamericana", 0);
@@ -27,7 +32,7 @@ public class Main {
         cantidadVendidosEditorial.put("Alianza", 0);
 
 
-        Libreria libreria=new Libreria(cantidadVendidosEditorial,librosVendidosDia);
+        Libreria libreria=new Libreria(cantidadVendidosEditorial,librosVendidosDia,editorialesConDesuento,comprasTotales);
 
         System.out.println(cantidadVendidosEditorial);
         //imprime: {nombreClaveTres=34, nombreClaveDos=123, nombreClaveUno=2}

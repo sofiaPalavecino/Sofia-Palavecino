@@ -53,9 +53,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593982253069" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1594338638143">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1595353312241">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1594338638143" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1595353312241" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1595360903300">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595360903300" />
   </component>
 </project>
