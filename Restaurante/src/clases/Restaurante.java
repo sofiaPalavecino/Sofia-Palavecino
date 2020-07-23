@@ -92,13 +92,14 @@ public class Restaurante {
 
     public HashSet<Mesa> mesasConPlato(int nroPlato){
         HashSet<Mesa>mesas=new HashSet<>();
+        Mesa mesa=new Mesa();
         for ( Map.Entry<Integer,Integer> elemento : this.getMesaHasPedidos().entrySet() ) {
 
-            for(Mesa mesa:this.getMesasTotales()){
-                if(elemento.getKey()==mesa.getNroMesa()){
-                    for(Pedido pedido:this.getPedidosTotales()){
-                        if(elemento.getValue()==pedido.getNroPedido() && pedido.getNroPlato()==nroPlato){
-                            mesas.add(mesa);
+            for(Pedido pedido:this.getPedidosTotales()){
+                if(pedido.getNroPedido()==elemento.getValue() && pedido.getNroPlato()==nroPlato){
+                    for(Map.Entry<Mesa,String>elemento1:this.getMesasTotales().entrySet()){
+                        if(elemento1.getKey().getNroMesa()==elemento.getKey()){
+                            mesas.add(elemento1.getKey());
                         }
                     }
                 }
@@ -161,26 +162,26 @@ public class Restaurante {
         int mayorValor=0;
         int cantidad;
         Mesa mesa=new Mesa();
-        for(Pedido pedido:this.getPedidosDelDia()){
-            for(Map.Entry<Integer,Integer> elemento:this.getMesaHasPedidos().entrySet()){
-                if(elemento.getValue()==pedido.getNroPedido()){
-                    cantidad=0;
-                    for(Map.Entry<Integer,Integer>elemento1:this.getMesaHasPedidos().entrySet()){
-                        if(elemento.getKey()==elemento1.getKey()){
-                            cantidad++;
-                        }
-                    }
-                    if(cantidad>mayorValor){
-                        mayorValor=cantidad;
-                        for(Mesa mesa1:this.getMesasTotales()){
-                            if(mesa1.getNroMesa()==elemento.getKey()){
-                                mesa=mesa1;
-                            }
+
+        for(Map.Entry<Integer,Integer>mesaPedidos:this.getMesaHasPedidos().entrySet()){ //selecciona una relacion pedido-mesa
+            cantidad=0;
+            for(Map.Entry<Integer,Integer>buscaMesa:this.getMesaHasPedidos().entrySet()){ //comienza a buscar entre todos los pedidos
+                if(buscaMesa.getKey()==mesaPedidos.getKey()){ //esta mesa es igual a la que estoy buscando?
+                    for(Pedido pedidio:this.getPedidosDelDia()){ //el pedido de esta relación es de este día?
+                        if(buscaMesa.getValue()==pedidio.getNroPedido()){
+                            cantidad++;  //como es la mesa y el pedido es de hoy, se le suma un punto al contador.
                         }
                     }
                 }
             }
-
+            if(cantidad>mayorValor){
+                mayorValor=cantidad;
+                for(Map.Entry<Mesa,String>mesasTotales:this.getMesasTotales().entrySet()){
+                    if(mesasTotales.getKey().getNroMesa()==mesaPedidos.getKey()){
+                        mesa=mesasTotales.getKey();
+                    }
+                }
+            }
         }
         return mesa;
     }
@@ -203,11 +204,83 @@ public class Restaurante {
     }
 
     public void vaciarMesa(int nroMesa){
-        for(Integer nro:this.getMesasDisponibles()){
-            for(Mesa mesa:this.getMesasTotales()){
-
+        for(Map.Entry<Mesa,String>mesa:this.getMesasTotales().entrySet()){
+            if(mesa.getKey().getNroMesa()==nroMesa){
+                mesa.getKey().getPedidos().clear();
             }
         }
+        this.getMesasDisponibles().add(nroMesa);
+    }
+
+    public void ocuparMesa(int nroMesa){
         this.getMesasDisponibles().remove(nroMesa);
+    }
+
+    public void sumarMesaDisponible(int nroMesa){
+        boolean mesaDisponible=true;
+        for(Integer mesa:this.getMesasDisponibles()){
+            if(mesa==nroMesa){
+                mesaDisponible=false;
+            }
+        }
+        if(mesaDisponible){
+            this.getMesasDisponibles().add(nroMesa);
+            System.out.println("Se agregó una mesa");
+        }
+        else{
+            System.out.println("Esta mesa ya está disponible");
+        }
+    }
+
+    public void agregarMesasDeExterior(){
+        boolean disponibles=true;
+        for(Integer nroMesa:this.getMesasDisponibles()){
+            for(Map.Entry<Mesa,String>mesasTotales:this.getMesasTotales().entrySet()){
+                if(mesasTotales.getKey().getNroMesa()==nroMesa && mesasTotales.getValue()=="Externa"){
+                    disponibles=false;
+                }
+            }
+        }
+
+        if(disponibles){
+            for(Map.Entry<Mesa,String>mesasTotales:this.getMesasTotales().entrySet()){
+                if(mesasTotales.getValue()=="Externa"){
+                    this.getMesasDisponibles().add(mesasTotales.getKey().getNroMesa());
+                }
+            }
+            System.out.println("Se añadieron mesas exteriores");
+        }
+        else{
+            System.out.println("Ya hay mesas exteriores añadidas");
+        }
+    }
+
+    public void eliminarMesasDeExterior(){
+        boolean disponibles=false;
+        for(Integer nroMesa:this.getMesasDisponibles()){
+            for(Map.Entry<Mesa,String>mesasTotales:this.getMesasTotales().entrySet()){
+                if(mesasTotales.getKey().getNroMesa()==nroMesa && mesasTotales.getValue()=="Externa"){
+                    disponibles=true;
+                }
+            }
+        }
+
+        if(disponibles){
+            HashSet<Integer>aEliminar=new HashSet<>();
+            for(Integer nroMesa:this.getMesasDisponibles()){
+                for(Map.Entry<Mesa,String>mesasTotales:this.getMesasTotales().entrySet()){
+                    if(mesasTotales.getKey().getNroMesa()==nroMesa && mesasTotales.getValue()=="Externa"){
+                        aEliminar.add(mesasTotales.getKey().getNroMesa());
+                    }
+                }
+            }
+            for(Integer nroMesa:aEliminar){
+                this.getMesasDisponibles().remove(nroMesa);
+            }
+            System.out.println("Se eliminaron las mesas exteriores");
+        }
+        else{
+            System.out.println("No hay mesas exteriores añadidas");
+        }
     }
 }
