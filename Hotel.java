@@ -1,5 +1,6 @@
 package clases;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -93,6 +94,20 @@ public class Hotel {
         ventana.setLayout(null);
         ventana.setSize(555,355);
         ventana.setVisible(true);
+
+        JMenu menu=new JMenu();
+        ventana.setJMenuBar(menu);
+
+        Font fuenteOpciones= new Font("Arial",Font.BOLD,30);
+        Font fuenteItems=new Font("Times New Roman", Font.ITALIC,25);
+
+        JMenu opcionFile=new JMenu("File");
+        opcionFile.setFont(fuenteOpciones);
+        barraDeMenu.add(opcionFile);
+
+        JMenuItem nuevo=new JMenuItem("New");
+        nuevo.setFont(fuenteItems);
+        opcionFile.add(nuevo);
 
         JLabel mensaje1=new JLabel();
         mensaje1.setText("Nombre:");
