@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class RegistroDeDatos {
     private String NombreUsuario;
     private String ApellidoUsuario;
-    private String EdadUsuario;
+    private int EdadUsuario;
     private String OcupacionUsuario;
 
-    public RegistroDeDatos(String NombreUsuario_N,String ApellidoUsuario_N,String EdadUsuario_N,String OcupacionUsuario_N){
+    public RegistroDeDatos(String NombreUsuario_N,String ApellidoUsuario_N,int EdadUsuario_N,String OcupacionUsuario_N){
         this.NombreUsuario=NombreUsuario_N;
         this.ApellidoUsuario=ApellidoUsuario_N;
         this.EdadUsuario=EdadUsuario_N;
@@ -18,7 +18,7 @@ public class RegistroDeDatos {
     public RegistroDeDatos(){
         this.NombreUsuario="Juan";
         this.ApellidoUsuario="Martinez";
-        this.EdadUsuario="24";
+        this.EdadUsuario=24;
         this.OcupacionUsuario="Vendedor de barbijos";
     }
 
@@ -28,7 +28,7 @@ public class RegistroDeDatos {
     public String getApellidoUsuario(){
         return ApellidoUsuario;
     }
-    public String getEdadUsuario(){
+    public int getEdadUsuario(){
         return EdadUsuario;
     }
     public String getOcupaciónUsuario(){
@@ -40,7 +40,7 @@ public class RegistroDeDatos {
     public void setApellidoUsuario(String ApellidoUsuario_N){
         this.ApellidoUsuario=ApellidoUsuario_N;
     }
-    public void setEdadUsuario(String EdadUsuario_N){
+    public void setEdadUsuario(int EdadUsuario_N){
         this.EdadUsuario=EdadUsuario_N;
     }
     public void  setOcupaciónUsuario(String OcupacionUsuario_N){
@@ -114,9 +114,11 @@ public class RegistroDeDatos {
                 String edadIngresada=campoEdad.getText();
                 String ocupacionIngresada=campoOcupacion.getText();
 
+                int edad=Integer.parseInt(edadIngresada);
+
                 registroDeDatos1.setNombreUsuario(nombreIngresado);
                 registroDeDatos1.setApellidoUsuario(apellidoIngresado);
-                registroDeDatos1.setEdadUsuario(edadIngresada);
+                registroDeDatos1.setEdadUsuario(edad);
                 registroDeDatos1.setOcupaciónUsuario(ocupacionIngresada);
 
                 usuarios.add(registroDeDatos1);

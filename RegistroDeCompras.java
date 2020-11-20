@@ -5,12 +5,12 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class RegistroDeCompras {
-    private String PrecioObjeto;
+    private float PrecioObjeto;
     private String NombreObjeto;
     private String MarcaObjeto;
-    private String UnidadesObjeto;
+    private int UnidadesObjeto;
 
-    public RegistroDeCompras(String PrecioOnjeto_N,String NombreObjeto_N,String MarcaObjeto_N,String UnidadesObjeto_N){
+    public RegistroDeCompras(float PrecioOnjeto_N,String NombreObjeto_N,String MarcaObjeto_N,int UnidadesObjeto_N){
         this.PrecioObjeto=PrecioOnjeto_N;
         this.NombreObjeto=NombreObjeto_N;
         this.MarcaObjeto=MarcaObjeto_N;
@@ -18,13 +18,13 @@ public class RegistroDeCompras {
     }
 
     public  RegistroDeCompras(){
-        this.PrecioObjeto="14.5f";
+        this.PrecioObjeto=14.5f;
         this.NombreObjeto="Lata Paté";
         this.MarcaObjeto="Patito";
-        this.UnidadesObjeto="58";
+        this.UnidadesObjeto=58;
     }
 
-    public String getPrecioObjeto() {
+    public float getPrecioObjeto() {
         return PrecioObjeto;
     }
 
@@ -36,11 +36,11 @@ public class RegistroDeCompras {
         return MarcaObjeto;
     }
 
-    public String getUnidadesObjeto() {
+    public int getUnidadesObjeto() {
         return UnidadesObjeto;
     }
 
-    public void setPrecioObjeto(String PrecioObjeto_N) {
+    public void setPrecioObjeto(float PrecioObjeto_N) {
         this.PrecioObjeto = PrecioObjeto_N;
     }
 
@@ -52,7 +52,7 @@ public class RegistroDeCompras {
         this.MarcaObjeto = MarcaObjeto_N;
     }
 
-    public void setUnidadesObjeto(String UnidadesObjeto_N) {
+    public void setUnidadesObjeto(int UnidadesObjeto_N) {
         this.UnidadesObjeto = UnidadesObjeto_N;
     }
 
@@ -127,10 +127,13 @@ public class RegistroDeCompras {
                 String marcaIngresada=campoMarca.getText();
                 String unidadesIngresada=campoUnidades.getText();
 
+                float precio=Float.parseFloat(precioIngresado);
+                int unidades=Integer.parseInt(unidadesIngresada);
+
                 registroDeCompra1.setNombreObjeto(nombreIngresado);
-                registroDeCompra1.setPrecioObjeto(precioIngresado);
+                registroDeCompra1.setPrecioObjeto(precio);
                 registroDeCompra1.setMarcaObjeto(marcaIngresada);
-                registroDeCompra1.setUnidadesObjeto(unidadesIngresada);
+                registroDeCompra1.setUnidadesObjeto(unidades);
 
                 compra.add(registroDeCompra1);
             }
