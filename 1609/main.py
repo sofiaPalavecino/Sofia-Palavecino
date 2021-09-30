@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     objeto_sopa = BeautifulSoup(pagina1.content, 'html.parser')
 
-    gatosPag1 = objeto_sopa.find_all('div', class_='results-view-image-container')
+    gatosPag1 = objeto_sopa.find_all('div', class_='results-view-name')
     lista1=list(gatosPag1)
     for i in range(len(lista1)):
         print(lista1[i])
