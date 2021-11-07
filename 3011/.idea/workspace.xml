@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0819aa8e-bc4f-4de8-9176-6eec00d5333e" name="Changes" comment="" />
+    <list default="true" id="66516562-5842-496a-82af-0c9bda973b89" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../1609/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1609/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="20bdYU7bV5w6AVENzwWb3V0Pw6K" />
+  <component name="ProjectId" id="20bqpeHyrVomB6HbjwUWleQUmrj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,8 +32,8 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
-    <configuration name="1609" type="PythonConfigurationType" factoryName="Python">
-      <module name="1609" />
+    <configuration name="3011" type="PythonConfigurationType" factoryName="Python">
+      <module name="3011" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -53,7 +55,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="1609" />
+      <module name="3011" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -78,12 +80,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0819aa8e-bc4f-4de8-9176-6eec00d5333e" name="Changes" comment="" />
-      <created>1636317270927</created>
+      <changelist id="66516562-5842-496a-82af-0c9bda973b89" name="Changes" comment="" />
+      <created>1636323819567</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636317270927</updated>
-      <workItem from="1636317298105" duration="2619000" />
+      <updated>1636323819567</updated>
+      <workItem from="1636323870185" duration="1071000" />
     </task>
     <servers />
   </component>
