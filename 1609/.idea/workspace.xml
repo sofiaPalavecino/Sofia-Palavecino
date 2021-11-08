@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0819aa8e-bc4f-4de8-9176-6eec00d5333e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/1609.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/1609.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/preciosFravega.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2110/notebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../2110/notebook.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../3009/notebooks/3009.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../3009/notebooks/3009.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3009/notebooks/preciosFravega.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../3009/notebooks/preciosFravega.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3011/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +93,8 @@
       <updated>1636317270927</updated>
       <workItem from="1636317298105" duration="2619000" />
       <workItem from="1636403636305" duration="182000" />
+      <workItem from="1636403855483" duration="1162000" />
+      <workItem from="1636406535848" duration="312000" />
     </task>
     <servers />
   </component>
